@@ -6,6 +6,9 @@ NOTE 🚫 Free Plan Limitations in this free api key:
 1. Maximum of 25 API requests per day
 2. Maximum of 5 API requests per minute
 
+For NEWSAPI documentation
+https://newsapi.org/docs/endpoints/top-headlines 
+
 #NOTE you must have account in Twilio, news-api
 # https://www.tradingview.com --> to see stock market information 
 # https://newsapi.org/docs/endpoints/top-headlines --> in this link we have documentation how we use keywords
