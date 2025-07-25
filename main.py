@@ -1,4 +1,13 @@
 # Stock News Monitoring Project
+
+# 1st fetch current stock price
+# get an news about stock market what name of the stock we are currently using 
+# to send alerts sending by sending SMS in your mobile by twilio 
+
+# now we are going to pull stock market data today's closing date share price was for example $1000
+# we are going to compare to yesterdays closing price $900
+# and we going to calculate it's percentage how much it increase
+
 # NOTE 🚫 Free Plan Limitations:
 # Maximum of 25 API requests per day
 # Maximum of 5 API requests per minute
@@ -9,18 +18,22 @@ from twilio.rest import Client
 VIRTUAL_TWILIO_NUMBER = "your virtual twilio number"
 VERIFIED_NUMBER = "your own phone number verified with Twilio"
 
+# we can use any stock names
 STOCK_NAME = "TSLA"
 COMPANY_NAME = "Tesla Inc"
-
+# STEP 1: Use https://www.alphavantage.co/documentation/#daily --> read the documentation
 STOCK_ENDPOINT = "https://www.alphavantage.co/query"
 NEWS_ENDPOINT = "https://newsapi.org/v2/everything"
 
+# from alphavantage.co to create an free API key by providing the given credentials have to fill inorder to get Free API key
 STOCK_API_KEY = "YOUR OWN API KEY FROM ALPHAVANTAGE"
+# For NEWSAPI documentation https://newsapi.org/docs/endpoints/top-headlines 1st create an account
 NEWS_API_KEY = "YOUR OWN API KEY FROM NEWSAPI"
+
+# THIS is twilio SID_number and auth_token from your account
 TWILIO_SID = "YOUR TWILIO ACCOUNT SID"
 TWILIO_AUTH_TOKEN = "YOUR TWILIO AUTH TOKEN"
 
-# STEP 1: Use https://www.alphavantage.co/documentation/#daily
 # When stock price increase/decreases by 5% between yesterday and the day before yesterday then print("Get News").
 
 #TODO-1: Get yesterday's closing stock price
@@ -86,11 +99,11 @@ if abs(percentage) > 1:
 
 #TODO-7: Use Twilio to send a separate message with each article's title and description to your phone number.
 
-    #Create a new list of the first 3 article's headline and description using list comprehension.
+#Create a new list of the first 3 article's headline and description using list comprehension.
     articles_in_format = [f"{STOCK_NAME}: {up_down}{percentage}%\nHeadline: {article['title']}. \nBrief: {article['description']}" 
                           for article in three_articles]
     print(articles_in_format)
-    #Send each article as a separate message via Twilio.
+#Send each article as a separate message via Twilio.
     client = Client(TWILIO_SID, TWILIO_AUTH_TOKEN)
 
 #TODO-8. - Send each article as a separate message via Twilio.
